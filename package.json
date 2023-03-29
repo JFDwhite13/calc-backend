@@ -1,0 +1,19 @@
+{
+  "name": "calc_backend",
+  "version": "0.0.1",
+  "description": "Calculadora usando una api",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "calculadora",
+    "api",
+    "prueba"
+  ],
+  "author": "JForero",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.5.0"
+  }
+}
