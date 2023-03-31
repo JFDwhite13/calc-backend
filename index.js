@@ -5,6 +5,16 @@ const express = require('express');
 const app = express();
 //para usar datos en json
 app.use(express.json());
+//definir cors para header
+app.use(
+        (req,resp, next)=>{
+        resp.header("Access-Control-Allow-Origin", "*");
+        resp.header("Access-Control-Allow-Methods", "GET,POST");
+        resp.header("Access-Control-Allow-Headers", "Content-Type");
+        next();
+        }
+    )
+
 //definir los entry point(puntos de entrada/rutas/urls) de la api
 app.get(
     '/',
@@ -23,19 +33,20 @@ app.post(
         //To do(por hacer): lo de aqui se ejecuta
         console.log("Alguien se conecto a esta ruta"+" suma");
         console.log(req.body);
-        const request = req.body
-        let suma = 0;
-        for(i in request){
-            var a = request[i];
-            console.log(a);
-            suma = suma + a;
-        }
-         console.log(suma);
-
+        const Num1 = parseFloat(req.body.Num1)
+        const Num2 = parseFloat(req.body.Num2)
+        const suma = Num1 + Num2
         resp.json("el resultado fue: "+suma)
     }
 );
 
+app.post(
+    '/resta',
+    (req,resp)=>{
+        const request = req.body
+
+    }
+)
 
 
 
