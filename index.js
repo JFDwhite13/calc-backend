@@ -36,7 +36,7 @@ app.post(
         const Num1 = parseFloat(req.body.Num1)
         const Num2 = parseFloat(req.body.Num2)
         const suma = Num1 + Num2
-        resp.json("el resultado fue: "+suma)
+        resp.json(suma)
     }
 );
 
@@ -57,7 +57,7 @@ app.post(
         }
          console.log(suma);
 
-        resp.json("el resultado fue: "+suma)
+        resp.json(suma)
     }
 );
 
@@ -65,13 +65,43 @@ app.post(
     '/resta',
     (req,resp)=>{
         const request = req.body
+        const Num1= parseFloat(req.body.Num1);
+        const Num2= parseFloat(req.body.Num2);
+        console.log("Se contectaron a la ruta de resta el mensaje enviado fue: "+ req.body)
+        let resta = Num1 - Num2
+
+        resp.json(resta);
 
     }
 )
 
 
+app.post(
+    '/multiplicacion',
+    (req,resp)=>{
+        const request = req.body;
+        const Num1 = parseFloat(req.body.Num1)
+        const Num2 = parseFloat(req.body.Num2)
+        console.log("Se conectaron a la ruta de multiplicacion")
+        let result = Num1 * Num2;
+
+        resp.json(result)
+    }
+)
 
 
+app.post(
+    '/div',
+    (req,resp)=>{
+        const request = req.body
+        const Num1 =parseFloat(req.body.Num1);
+        const Num2 =parseFloat(req.body.Num2);
+        console.log("Se conectaron a la ruta de division");
+        let result = Num1 / Num2;
+
+        resp.json(result)
+    }
+)
 //crear un servicio para recibir peticiones y conocer activacion de servidor 
 app.listen(
     3000,
